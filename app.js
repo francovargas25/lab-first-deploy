@@ -8,13 +8,14 @@ const cookieParser   = require("cookie-parser");
 const bodyParser     = require("body-parser");
 const mongoose       = require("mongoose");
 const app            = express();
+require("dotenv").config();
 
 // Controllers
 const siteController     = require("./routes/siteController");
 const locationController = require("./routes/locationController");
 
 // Mongoose configuration
-mongoose.connect("mongodb://francovargas:FRvh1358.@ds117336.mlab.com:17336/iron-bitch");
+mongoose.connect(process.env.DATABASE);
 
 // Middlewares configuration
 app.use(logger("dev"));
